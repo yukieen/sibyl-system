@@ -2,10 +2,18 @@ package human.model;
 
 public class Human {
 	String name;
-	PsychoPass psychoPass;
+	Psychopass psychoPass;
+	
+	public Human(String name, Psychopass psychopass) {
+		this.name = name;
+		this.psychoPass = psychopass;
+	}
 
-	public PsychoPass getPsychoPass() {
-		return psychoPass;
+	public String getName() {
+		return name;
 	}
 	
+	public Psychopass getPsychoPass() {
+		return psychoPass;
+	}
 }

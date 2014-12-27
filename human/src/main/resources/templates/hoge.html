@@ -6,13 +6,13 @@
     <link rel="stylesheet" th:href="@{/css/base.css}" href="../static/css/base.css" />
     <title>ほげ</title>
 </head>
-<body th:style="'background-color:' + ${psychoPass.color} + ';'">
+<body th:style="'background-color:' + ${human.psychoPass.color()} + ';'">
 	<div class="container">
-		<H1>ほげくん</H1>
+		<H1>${human.name}</H1>
     	<img th:src="@{/images/hoge.jpg}" src="../static/images/hoge.jpg"/>
-    	<form class="form-signin" method="POST" th:action="@{/hoge}">
-    		<a class="btn btn-default" th:href="@{/hoge/down}" role="button">ほめる</a>
-    		<a class="btn btn-default" th:href="@{/hoge/up}" role="button">けなす</a>
+    	<form class="form-signin" method="POST" th:action="@{/}">
+    		<a class="btn btn-default" th:href="@{/down}" role="button">ほめる</a>
+    		<a class="btn btn-default" th:href="@{/up}" role="button">けなす</a>
     	</form>
     </div>
 </body>
