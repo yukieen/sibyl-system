@@ -1,0 +1,65 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.2.0.RELEASE')
+        classpath('org.springframework:springloaded:1.2.1.RELEASE')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(AbstractCompile) each { it.options.encoding = 'UTF-8' }
+tasks.withType(GroovyCompile) each { it.groovyOptions.encoding = 'UTF-8' }
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
+jar {
+    baseName = 'human'
+    version = '0.1.0'
+}
+
+bootRun {
+    if ( project.hasProperty('args') ) {
+        args project.args.split('\\s+')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def springBootVersion = '1.2.0'
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}.RELEASE")
+
+    compile("org.webjars:bootstrap:3.2.0-1")
+    compile("org.webjars:jquery:2.1.1")
+    compile("com.h2database:h2:1.4.181")
+    compile("commons-lang:commons-lang:2.6")
+    compile("org.mybatis:mybatis:3.2.7")
+    compile("org.mybatis:mybatis-spring:1.2.2")
+    compile("org.springframework:springloaded:1.2.1.RELEASE")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}.RELEASE")
+    testCompile("org.spockframework:spock-core:0.7-groovy-2.0")
+    testCompile("org.spockframework:spock-spring:0.7-groovy-2.0")
+
+}
+
