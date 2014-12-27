@@ -1,0 +1,14 @@
+*.un~
+
+# For idea
+.idea
+*.iml
+# For Gradle
+**/build
+.gradle
+
+# For astah
+*.lock
+
+# For local
+temp
