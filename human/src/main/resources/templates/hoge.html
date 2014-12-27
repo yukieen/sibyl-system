@@ -8,7 +8,7 @@
 </head>
 <body th:style="'background-color:' + ${human.psychoPass.color()} + ';'">
 	<div class="container">
-		<H1>${human.name}</H1>
+		<H1 th:text="${human.name}"/>
     	<img th:src="@{/images/hoge.jpg}" src="../static/images/hoge.jpg"/>
     	<form class="form-signin" method="POST" th:action="@{/}">
     		<a class="btn btn-default" th:href="@{/down}" role="button">ほめる</a>

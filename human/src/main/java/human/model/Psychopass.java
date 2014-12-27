@@ -6,23 +6,19 @@ import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-/**
- * Created by haljik on 14/12/27.
- */
 public class Psychopass {
-    Integer crimecoefficient = 300 ;
-    String color = "#000";
+    Integer crimecoefficient = 0 ;
 
     public Integer getCrimecoefficient() {
         return crimecoefficient;
     }
     
     public void increment(Integer value) {
-		this.crimecoefficient =+ value;
+		this.crimecoefficient += value;
 	}
     
     public void decrement(Integer value) {
-		this.crimecoefficient =- value;
+		this.crimecoefficient -= value;
 	}
     
     public String color() {
