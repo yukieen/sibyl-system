@@ -7,7 +7,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 /**
  * Created by haljik on 14/12/27.
  */
-public class Psychopass2 {
+public class Psychopass {
     @JsonProperty("counter\\.human\\.psychopass\\.crimecoefficient")
     private Integer crimecoefficient = 0;
 
