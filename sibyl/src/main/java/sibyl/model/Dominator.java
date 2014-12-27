@@ -2,8 +2,6 @@ package sibyl.model;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import sibyl.model.ExecutionMode;
-import sibyl.model.Psychopass;
 
 /**
  * Created by haljik on 14/12/27.
