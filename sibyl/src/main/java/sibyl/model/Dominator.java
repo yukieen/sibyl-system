@@ -11,10 +11,15 @@ public class Dominator {
     ExecutionMode mode = ExecutionMode.None;
 
     public Psychopass aime(String target) {
-        RestTemplate restTemplate = new RestTemplate();
-        Psychopass psychopass = restTemplate.getForObject("http://" + target + "/metrics", Psychopass.class);
-        mode = psychopass.mode();
-        return psychopass;
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            Psychopass psychopass = restTemplate.getForObject("http://" + target + "/metrics", Psychopass.class);
+            mode = psychopass.mode();
+            return psychopass;
+        } catch(Exception e) {
+            mode = ExecutionMode.None;
+            return new Psychopass();
+        }
     }
 
 
