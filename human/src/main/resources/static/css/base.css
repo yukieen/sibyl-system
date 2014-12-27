@@ -2,3 +2,19 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
+.hoge-container {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  position: relative;
+  height: auto;
+}
+
+.img-btn {
+  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+  -moz-box-shadow: 1px 2px 4px rgba(0,0,0,.5);
+  box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+  padding: 2px;
+  background: white;
+}

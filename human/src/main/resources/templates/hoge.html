@@ -8,12 +8,17 @@
 </head>
 <body th:style="'background-color:' + ${human.psychoPass.color()} + ';'">
 	<div class="container">
-		<H1 th:text="${human.name}"/>
-    	<img th:src="@{'/images/' + ${human.image()} }" src="../static/images/hoge.jpg"/>
-    	<form class="form-signin" method="POST" th:action="@{/}">
-    		<a class="btn btn-default" th:href="@{/down}" role="button">ほめる</a>
-    		<a class="btn btn-default" th:href="@{/up}" role="button">けなす</a>
-    	</form>
+	<form class="form-signin" method="POST" th:action="@{/}">
+		<div class="hoge-container">
+			<H1 th:text="${human.name}"/>
+	    	<img th:src="@{'/images/' + ${human.image()} }" src="../static/images/hoge.jpg"/>
+    	</div>
+		<a th:href="@{/sexy}"><img class="img-btn" th:src="@{/images/btn01.png}" src="../static/images/btn01.png"/></a>
+		<a th:href="@{/bye}"><img class="img-btn" th:src="@{/images/btn02.png}" src="../static/images/btn02.png"/></a>
+		<a th:href="@{/party}"><img class="img-btn" th:src="@{/images/btn03.png}" src="../static/images/btn03.png"/></a>
+		<a th:href="@{/grand-final}"><img class="img-btn" th:src="@{/images/btn04.png}" src="../static/images/btn04.png"/></a>
+		<a th:href="@{/oppai}"><img class="img-btn" th:src="@{/images/btn05.png}" src="../static/images/btn05.png"/></a>
+    </form>
     </div>
 </body>
 </html>

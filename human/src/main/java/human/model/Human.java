@@ -22,6 +22,7 @@ public class Human {
 	public void paralize(){
 		status = Status.PARALIZE;
 	}
+	
 	public String image(){
 		if(status.equals(Status.PARALIZE)){
 			return "hoge-paralize.jpg";
