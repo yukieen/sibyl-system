@@ -3,10 +3,7 @@ package sibyl.datasource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import sibyl.model.ExecutionMode;
-import sibyl.model.Metrics;
 import sibyl.model.Psychopass;
-
-import java.net.ConnectException;
 
 /**
  * Created by haljik on 14/12/27.
@@ -17,9 +14,9 @@ public class Dominator {
 
     public Psychopass aime(String target) {
         RestTemplate restTemplate = new RestTemplate();
-        Metrics metrics = restTemplate.getForObject("http://" + target + "/metrics", Metrics.class);
-        this.mode = metrics.counter.psychopass.mode();
-        return metrics.counter.psychopass;
+        Psychopass psychopass2 = restTemplate.getForObject("http://" + target + "/metrics", Psychopass.class);
+        this.mode = psychopass2.mode();
+        return psychopass2;
     }
 
     public boolean isExecutable() {

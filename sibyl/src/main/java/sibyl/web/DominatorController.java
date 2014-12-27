@@ -26,6 +26,11 @@ public class DominatorController {
         return new Psychopass();
     }
 
+    @ModelAttribute("target")
+    public String target() {
+        return "localhost:32615";
+    }
+
     @RequestMapping
     public String startUp() {
         return "dominator";

@@ -1,6 +1,7 @@
 package sibyl.model;
 
-import org.springframework.http.HttpMethod;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -48,5 +49,10 @@ public enum ExecutionMode {
 
     public boolean isExecutable() {
         return this != None;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
