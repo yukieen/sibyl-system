@@ -1,26 +1,9 @@
 package human.service;
 
-import java.util.stream.IntStream;
+public interface HumanService {
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.metrics.CounterService;
-import org.springframework.stereotype.Service;
+	public abstract void increment(int count);
 
-@Service
-public class HumanService {
-    private final CounterService counterService;
-    private static final String metricsName= "human.phychopass.crimecoefficient";
+	public abstract void decrement(int count);
 
-    @Autowired
-    public HumanService(CounterService counterService) {
-        this.counterService = counterService;
-    }
-
-    public void praise(int count) {
-    	IntStream.range(0, count).forEach(it -> this.counterService.increment(metricsName));
-    }
-    
-    public void abuse(int count){
-    	IntStream.range(0, count).forEach(it -> this.counterService.decrement(metricsName));
-    }
 }

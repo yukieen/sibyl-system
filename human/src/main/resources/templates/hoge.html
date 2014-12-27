@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/base.css}" href="../static/css/base.css" />
     <title>ほげ</title>
 </head>
-<body>
+<body th:style="'background-color:' + ${psychoPass.color} + ';'">
 	<div class="container">
 		<H1>ほげくん</H1>
     	<img th:src="@{/images/hoge.jpg}" src="../static/images/hoge.jpg"/>

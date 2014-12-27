@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/hoge")
 public class HogeController {
-	@Autowired
-	HumanService service;
 	
+	@Autowired
+	private HumanService service;
 	
     @RequestMapping("/up")
     public String up() {
-    	service.praise(100);
+    	service.increment(100);
         return "hoge";
     }
     
     @RequestMapping("/down")
     public String down() {
-    	service.abuse(100);
+    	service.decrement(100);
         return "hoge";
     }
 }
