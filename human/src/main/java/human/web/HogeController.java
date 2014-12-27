@@ -46,6 +46,6 @@ public class HogeController {
     
     @RequestMapping("/paralize")
     public void paralize(@ModelAttribute Human human){
-    	
+    	human.paralize();
     }
 }
