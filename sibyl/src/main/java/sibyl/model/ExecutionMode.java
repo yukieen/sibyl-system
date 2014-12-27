@@ -1,4 +1,4 @@
-package sibyl.datasource;
+package sibyl.model;
 
 /**
  * Created by haljik on 14/12/27.

@@ -4,17 +4,16 @@
     <title>ドミネーター</title>
     <link th:href="@{/webjars/bootstrap/3.2.0-1/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
-<body th:style="'background-color:' + ${psychoPass.color} + ';'">
+<body th:style="'background-color:' + ${psychopass.color()} + ';'">
     <form th:action="@{/dominator/aime}">
-        <input type="text" name="target" /><button type="submit" class="btn btn-default">スキャンする</button>
+        <input type="text" name="target" th:value="${target}"/><button type="submit" class="btn btn-default">スキャンする</button>
     </form>
     <div>
         <dl>
-            <dt>犯罪係数</dt><dd th:text="${psychoPass.point}"></dd>
+            <dt>犯罪係数</dt><dd th:text="${psychopass.crimecoefficient}"></dd>
         </dl>
     </div>
-    <div th:text="${dominator.message}">
-    </div>
+    <div th:text="${dominator.message}"/>
     <form th:if="${dominator.executable}" th:action="@{/dominator/execute}">
         <input type="hidden" name="target" th:value="${target}" />
         <button role="button" >執行する</button>

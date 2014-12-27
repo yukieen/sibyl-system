@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import sibyl.datasource.Dominator;
-import sibyl.model.PsychoPass;
+import sibyl.model.Psychopass;
 
 /**
  * Created by haljik on 14/12/27.
@@ -22,8 +22,8 @@ public class DominatorController {
     }
 
     @ModelAttribute
-    public PsychoPass psychoPass() {
-        return new PsychoPass();
+    public Psychopass psychoPass() {
+        return new Psychopass();
     }
 
     @RequestMapping
@@ -34,7 +34,7 @@ public class DominatorController {
     @RequestMapping("/aime")
     public String aime(@RequestParam("target") String target,
                        @ModelAttribute Dominator dominator,Model model) {
-        PsychoPass psychoPass = dominator.aime(target);
+        Psychopass psychoPass = dominator.aime(target);
         model.addAttribute("psychoPass",psychoPass);
         model.addAttribute("target", target);
         return "dominator";

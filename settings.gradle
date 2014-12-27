@@ -1,2 +1,1 @@
-include 'sibyl'
-include 'human'
+include 'sibyl','human'

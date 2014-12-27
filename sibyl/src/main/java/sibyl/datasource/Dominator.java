@@ -1,9 +1,12 @@
 package sibyl.datasource;
 
 import org.springframework.stereotype.Component;
-import sibyl.model.PsychoPass;
+import org.springframework.web.client.RestTemplate;
+import sibyl.model.ExecutionMode;
+import sibyl.model.Metrics;
+import sibyl.model.Psychopass;
 
-import javax.xml.transform.Result;
+import java.net.ConnectException;
 
 /**
  * Created by haljik on 14/12/27.
@@ -12,9 +15,11 @@ import javax.xml.transform.Result;
 public class Dominator {
     ExecutionMode mode = ExecutionMode.None;
 
-    public PsychoPass aime(String target) {
-        PsychoPass psychoPass = new PsychoPass();
-        return psychoPass;
+    public Psychopass aime(String target) {
+        RestTemplate restTemplate = new RestTemplate();
+        Metrics metrics = restTemplate.getForObject("http://" + target + "/metrics", Metrics.class);
+        this.mode = metrics.counter.psychopass.mode();
+        return metrics.counter.psychopass;
     }
 
     public boolean isExecutable() {
@@ -22,6 +27,7 @@ public class Dominator {
     }
 
     public void execute(String target) {
+        aime(target);
         mode.execute(target);
     }
 
