@@ -12,3 +12,9 @@
 
 # For local
 temp
+
+# For Eclipse
+.project
+.classpath
+.settings
+bin/
