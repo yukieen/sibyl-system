@@ -45,7 +45,8 @@ public class HogeController {
     }
     
     @RequestMapping("/paralize")
-    public void paralize(@ModelAttribute Human human){
+    public String paralize(@ModelAttribute Human human){
     	human.paralize();
+    	return "hoge";
     }
 }
