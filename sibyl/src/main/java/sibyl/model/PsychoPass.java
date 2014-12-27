@@ -13,9 +13,12 @@ public class Psychopass {
     }
 
     public String color() {
-        int r = 255 - (crimecoefficient / 3);
-        int g = 255 - (crimecoefficient / 3);
-        int b = 255 - (crimecoefficient / 3);
+        int b = 255 - crimecoefficient;
+        int g = 255 - b;
+        int r = 255 - g;
+        if (g < 0 ) g = 0;
+        if (b < 0 ) b = 0;
+        if (r < 0 ) r = 0;
         return "#" + toHex(r) + toHex(g) + toHex(b);
     }
 
