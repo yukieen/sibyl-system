@@ -1,4 +1,4 @@
-package sibyl.datasource;
+package sibyl.model;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -14,10 +14,11 @@ public class Dominator {
 
     public Psychopass aime(String target) {
         RestTemplate restTemplate = new RestTemplate();
-        Psychopass psychopass2 = restTemplate.getForObject("http://" + target + "/metrics", Psychopass.class);
-        this.mode = psychopass2.mode();
-        return psychopass2;
+        Psychopass psychopass = restTemplate.getForObject("http://" + target + "/metrics", Psychopass.class);
+        mode = psychopass.mode();
+        return psychopass;
     }
+
 
     public boolean isExecutable() {
         return mode.isExecutable();

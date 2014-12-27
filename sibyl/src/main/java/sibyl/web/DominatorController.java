@@ -3,10 +3,9 @@ package sibyl.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import sibyl.datasource.Dominator;
+import sibyl.model.Dominator;
 import sibyl.model.Psychopass;
 
 /**
@@ -22,7 +21,7 @@ public class DominatorController {
     }
 
     @ModelAttribute
-    public Psychopass psychoPass() {
+    public Psychopass psychopass() {
         return new Psychopass();
     }
 
@@ -40,14 +39,15 @@ public class DominatorController {
     public String aime(@RequestParam("target") String target,
                        @ModelAttribute Dominator dominator,Model model) {
         Psychopass psychoPass = dominator.aime(target);
-        model.addAttribute("psychoPass",psychoPass);
+        model.addAttribute("psychopass",psychoPass);
         model.addAttribute("target", target);
         return "dominator";
     }
 
-    @RequestMapping("/execute/{target}")
-    public String execute(@PathVariable("target") String target,
-                       @ModelAttribute Dominator dominator,Model model) {
+    @RequestMapping("/execute")
+    public String execute(@RequestParam("target") String target,
+                       @ModelAttribute Dominator dominator,
+                       Model model) {
         dominator.execute(target);
         model.addAttribute("target", target);
         return "dominator";
