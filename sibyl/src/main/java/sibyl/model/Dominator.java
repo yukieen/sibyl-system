@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class Dominator {
     ExecutionMode mode = ExecutionMode.None;
 
-    public Psychopass aime(String target) {
+    public Psychopass aim(String target) {
         try {
             RestTemplate restTemplate = new RestTemplate();
             Psychopass psychopass = restTemplate.getForObject("http://" + target + "/metrics", Psychopass.class);
@@ -28,7 +28,7 @@ public class Dominator {
     }
 
     public void execute(String target) {
-        aime(target);
+        aim(target);
         mode.execute(target);
     }
 

@@ -38,7 +38,7 @@ public class DominatorController {
     @RequestMapping("/aime")
     public String aime(@RequestParam("target") String target,
                        @ModelAttribute Dominator dominator,Model model) {
-        Psychopass psychoPass = dominator.aime(target);
+        Psychopass psychoPass = dominator.aim(target);
         model.addAttribute("psychopass",psychoPass);
         model.addAttribute("target", target);
         return "dominator";
@@ -48,9 +48,9 @@ public class DominatorController {
     public String execute(@RequestParam("target") String target,
                        @ModelAttribute Dominator dominator,
                        Model model) {
-        Psychopass psychoPass = dominator.aime(target);
+        Psychopass psychoPass = dominator.aim(target);
         dominator.execute(target);
-        model.addAttribute("psychopass",psychoPass);
+        model.addAttribute("psychopass", psychoPass);
         model.addAttribute("target", target);
         return "dominator";
     }
